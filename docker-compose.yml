@@ -30,6 +30,18 @@ services:
     depends_on:
       - elasticsearch
 
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.11.1
+    command: bin/logstash -f /config/logstash-sample.conf
+    # volumes:
+    #   - ./logstash/logstash.conf:/config/logstash.conf:ro
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - es-network
+    depends_on:
+      - elasticsearch
+
 volumes:
   es-data01:
     driver: local
