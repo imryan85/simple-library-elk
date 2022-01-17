@@ -1,0 +1,9 @@
+mongo-url = "mongodb+srv://admin:admin@simple-library-mongo.3t9tx.mongodb.net"
+elasticsearch-urls = ["http://elasticsearch:9200/"]
+
+direct-read-namespaces = ["libraryDB.books"]
+change-stream-namespaces = ["libraryDB.books"]
+
+[[mapping]]
+namespace = "libraryDB.books"
+index = "librarydb_books"
